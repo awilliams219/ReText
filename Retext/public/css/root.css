@@ -1,0 +1,203 @@
+/*
+ReText Base CSS
+*/
+/* 
+    Created on : Aug 17, 2014, 5:13:31 PM
+    Author     : awilliams
+*/
+
+
+.PageWrapper {
+    width: 100%;
+    height: 95%;
+}
+
+.HeaderBar {
+    margin-top: 40px;
+    width: 100%;
+    height: 76px;
+    background-color: rgb(91,155,213);
+}
+
+.logo {
+    background-image: url('/assets/petsafe.png');
+    float: left;
+    width: 315px;
+    height: 108px;
+    margin-top: -12px;
+}
+
+.HeaderText {
+    font-size: 44pt;
+    color: #FFF;
+    float: right;
+    margin-right: 80px;
+}
+
+.TopBarWrapper {
+   width: 45%;
+   margin: 0 auto;
+   padding-top: 10px;
+}
+
+.BottomBarWrapper {
+    width: 45%;
+    margin: 0 auto;
+}
+
+.ContentWrap {
+    width : 100%;
+    height: 73%; 
+    clear : both;
+    margin-top: 60px;
+}
+
+.Sidebar {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    float: left;
+    
+}
+
+.SidebarHeader {
+    padding: .3em 10%;
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgb(91,155,213);
+    text-align: right;
+    margin-bottom: 5%;
+}
+
+.TaskHeader {
+    color: #fff;
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+.SidebarBody {
+    padding: .3em 10%;
+    width: 80%;
+    margin: 0 auto;
+    
+    text-align: right;
+}
+
+.SidebarFooter {
+    position: absolute;
+    bottom: 1em;
+    clear: both;
+    padding: .3em 10%;
+    width: 80%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.UserStatusLabel {
+    font-size: 20pt;
+    font-weight: 300;
+}
+
+.PageFooter {
+    width: 100%;
+    clear: both;
+}
+
+.DemoTextWrapper {
+    text-align:right;
+    font-weight: 600;
+    font-size: 18pt;
+    margin-right: 2em;
+}
+
+.KeywordTable {
+    width: 60%;
+    height: 90%;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.KeywordTableTH {
+    background-color: rgb(91,155,213);
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 18pt;
+    font-weight: 700;
+    padding: .3em 5%;
+    margin-bottom: 5%;
+}
+
+.KeywordTableFootTd {
+    background-color: #fff;
+}
+
+td,th {
+    border: 1px solid #fff;
+}
+
+tr.KeywordTableRow:nth-child(even) {
+    background-color: rgb(234,239,247);
+}
+tr.KeywordTableRow:nth-child(odd) {
+    background-color: rgb(210,222,239);
+}
+
+
+.DeleteX {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    color: rgb(46,117,182);
+    font-size: 24pt;
+    font-weight: 900;
+}
+
+.Hidden {
+    display: none;
+    visibility: hidden;
+}
+
+button {
+    background-color: rgb(46,117,182);
+    border: 1px solid rgb(40,100, 180);
+    color: #fff;
+    padding: .5em 2em;
+    border-radius: 10px;
+}
+
+td.addCell {
+    border: 10px solid #fff;
+}
+
+
+a.DeleteLink, a.DeleteLink:hover, a.DeleteLink:visited {
+    text-decoration: none;
+}
+
+a.DeleteLink:hover {
+    color: #f00;
+}
+
+li {
+    list-style-type: none;
+}
+
+li.SidebarLink {
+    list-style-type: none;
+    font-size: 16pt;
+    font-weight: 500;
+}
+
+li.SidebarBlank {
+    height: 3em;
+}
+
+
+hr {
+    border-color: rgb(91,155,213);
+}
+
+.TaskSelected {
+    font-weight: 900;
+    color: rgb(30 ,80, 180)
+}
