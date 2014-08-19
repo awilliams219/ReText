@@ -10,6 +10,7 @@ ReText Base CSS
 .PageWrapper {
     width: 100%;
     height: 95%;
+    position: relative;
 }
 
 .HeaderBar {
@@ -98,6 +99,17 @@ ReText Base CSS
     font-weight: 300;
 }
 
+.ErrorMessageWrapper {
+    position: absolute;
+    bottom: 6%;
+    right: 2%;
+}
+
+.Error {
+    color: #f00;
+    font-size: 20pt;
+}
+
 .PageFooter {
     width: 100%;
     clear: both;
@@ -110,14 +122,14 @@ ReText Base CSS
     margin-right: 2em;
 }
 
-.KeywordTable {
+.KeywordTable, .UserTable {
     width: 60%;
     height: 90%;
     border: 1px solid #fff;
     position: relative;
 }
 
-.KeywordTableTH {
+.KeywordTableTH, .UserTableTH {
     background-color: rgb(91,155,213);
     border: 1px solid #fff;
     color: #fff;
@@ -127,7 +139,7 @@ ReText Base CSS
     margin-bottom: 5%;
 }
 
-.KeywordTableFootTd {
+.KeywordTableFootTD, .UserTableFootTD {
     background-color: #fff;
 }
 
@@ -135,10 +147,10 @@ td,th {
     border: 1px solid #fff;
 }
 
-tr.KeywordTableRow:nth-child(even) {
+tr.KeywordTableRow:nth-child(even), tr.UserTableRow:nth-child(even) {
     background-color: rgb(234,239,247);
 }
-tr.KeywordTableRow:nth-child(odd) {
+tr.KeywordTableRow:nth-child(odd), tr.UserTableRow:nth-child(odd)  {
     background-color: rgb(210,222,239);
 }
 

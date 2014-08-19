@@ -29,7 +29,7 @@
                                 <li class="SidebarLink" id="UserTaskEntry">{{ link_to_action('UserController@getRootmenu', 'User Management' ); }}</li>
                                 <li class="SidebarLink" id="KeywordTaskEntry">{{ link_to_action('KeywordController@getRootmenu', 'Keyword Management' ); }}</li>
                                 <li class="SidebarBlank">&nbsp;</li>
-                                <li class="SidebarLink">{{ link_to_action('UserController@getLogout', 'Logout' ); }}</li>
+                                <li class="SidebarLink">{{ link_to_action('LoginController@getLogout', 'Logout' ); }}</li>
                             </ul>
                         </div>
                         <div class="SidebarFooter">
@@ -46,6 +46,11 @@
                 <div class="AppCanvas">
                     @yield('Canvas')
                 </div>
+            </div>
+            <div class="ErrorMessageWrapper">
+                @foreach ($errors as $error)
+                    <p class="Error">{{ $error }}</p>
+                @endforeach
             </div>
             <div class="BottomBarWrapper"><hr class="bar" /></div>
             <div class="PageFooter">

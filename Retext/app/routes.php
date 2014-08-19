@@ -22,10 +22,18 @@ Route::controller('keywords', 'KeywordController');
 /**
  * SMS Acceptor
  */
-Route::post('sms', 'IOContoller@smsReceiver');
+Route::post('sms', 'IOController@smsReceiver');
 Route::get('sms', function() {
     return Redirect::to('http://petsafe.net');
 });
+
+
+/**
+ * Login Prompt
+ */
+Route::get('/login', 'LoginController@getLogin');
+Route::post('/login', 'LoginController@postLogin');
+Route::get('/logout', 'LoginController@getLogout');
 
 /**
  * Root Redirections
