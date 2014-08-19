@@ -14,4 +14,7 @@
  * @author awilliams
  * 
  */
-class Keyword extends Eloquent {}
+class Keyword extends Eloquent {
+    
+    protected $fillable = array('keyword', 'url');
+}

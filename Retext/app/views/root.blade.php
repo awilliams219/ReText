@@ -9,9 +9,16 @@
         {{ HTML::style('css/root.css'); }}
         {{ HTML::script('js/retext.js'); }}
         
+        @yield('JSLoader')
         
     </head>
     <body>
+        <noscript>
+            <h4>Your browser does not support JavaScript, or you have it disabled.</h4>
+            <p>Some features of this page may not work properly.  Please either enable 
+                JavaScript or use a browser that supports it to proceed.</p>
+        </noscript>
+        
         <div class="PageWrapper">
             <div class="HeaderBar">
                 <div class="logo">&nbsp;</div>

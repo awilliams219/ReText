@@ -30,11 +30,11 @@ class KeywordController extends BaseController{
         {
             if (Auth::user()->can_add)
             {
-
+                
                 $newKeyword = Input::get('keyword');
                 $url = Input::get('url');
 
-                $keyword = new Keyword;
+                $keyword = Keyword::firstOrNew(array('keyword' => Input::get('keyword')));  ## Check if it already exists.  Update the existing if it does.
                 $keyword->keyword = strtolower($newKeyword);                                ## Make it case-insensitive.  Also strtolower the Twilio requests.
                 $keyword->url = $url;                                           
                 $keyword->save();

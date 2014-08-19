@@ -35,7 +35,7 @@ class UserController extends BaseController{
             {
                 if (Input::get('password') == Input::get('passwordConfirm'))
                 {
-                    $newUser = new User;
+                    $newUser = User::firstOrNew(array('username' => Input::get('username')));   ## Update existing record if the user already exists.
                     $newUser->username = Input::get('username');
                     $newUser->password = Hash::make(Input::get('password'));
                     $newUser->can_delete = Input::get('can_delete');
@@ -72,12 +72,29 @@ class UserController extends BaseController{
         {
             if (Auth::user()->administrator)
             {
-                $id = Input::get('id');
+                if(! (Auth::user()->id == Input::get('id')))
+                {
+                    
+                    $id = Input::get('id');
+                    $user = User::find($id);
+                    
+                    if (! ( ($user->administrator) &&                                      ## If we're deleting an admin, there must be another 
+                            (User::where('administrator', '=', 1)->count() < 2) ))         ## allow someone else to take the reigns.
+                    {                                                                      ## Require min. 2 admin accounts minimum to delete one. 
+                        
+                        $user->delete();
 
-                $user = User::find($id);
-                $user->delete();
-
-                return Redirect::action('UserController@getManage');
+                        return Redirect::action('UserController@getManage');
+                    }
+                    else
+                    {
+                        $errors[] = "There must always be at least one administrator.";
+                    }
+                }
+                else
+                {
+                    $errors[] = "You cannot delete yourself.";
+                }
             }
             else
             {

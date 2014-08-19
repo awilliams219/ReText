@@ -1,56 +1,64 @@
 @extends('root')
 
-@section('Canvas')
+@section('JSLoader')
+     {{ HTML::script('js/users.js'); }}
+@stop
 
-<table class="UserTable">
-    <thead class="UserTableHead">
-        <tr class="UserTableHeadTR">
-            <th class="UserTableTH">
-                Username
-            </th>
-            <th class="UserTableTH">
-                Rights
-            </th>
-        </tr>
-    </thead>
-    <tbody class="UserTableBody">
-        @forelse ($users as $user)
-            <tr class="UserTableRow" onMouseOver="enableX({{ $user->id }});" onMouseOut="disableX({{ $user->id }});">
-                <td class="User">
-                    <span id="user_{{ $user->id }}">{{ $user->username }}</span>
-                </td>
-                <td class="Permissions">
-                    @if ($user->administrator)
-                        ADMIN 
-                    @endif
-                    @if ($user->can_delete)
-                        DELETE
-                    @endif
-                    @if ($user->can_add)
-                        SUBMIT
-                    @endif
-                    <div class="DeleteX Hidden" id="DeleteX_{{ $user->id }}">
-                        <a href="#" class="DeleteLink" onClick="confirmDelete({{ $user->id }}, '{{$user->username}}'); return false;">X</a>
-                    </div>
-                </td>
+@section('Canvas')
+<div class="TableWrap">
+    <table class="UserTable">
+        <thead class="UserTableHead">
+            <tr class="UserTableHeadTR">
+                <th class="UserTableTH">
+                    Username
+                </th>
+                <th class="UserTableTH">
+                    Rights
+                </th>
             </tr>
-        @empty
-            <tr class="UserTableEmpty">
-                <td colspan="2" class="NoUsers">
-                    There are currently no registered users.  Please re-seed the users table.
-                </td>
-            </tr>
-        @endforelse
-    </tbody>
-    <tfoot class="UserTableFooter">
+        </thead>
+        <tbody class="UserTableBody">
+            @forelse ($users as $user)
+                <tr class="UserTableRow" onMouseOver="enableX({{ $user->id }});" onMouseOut="disableX({{ $user->id }});">
+                    <td class="User TableEntry">
+                        <span id="user_{{ $user->id }}">{{ $user->username }}</span>
+                    </td>
+                    <td class="Permissions TableEntry">
+                        @if ($user->administrator)
+                            ADMIN 
+                        @endif
+                        @if ($user->can_delete)
+                            DELETE
+                        @endif
+                        @if ($user->can_add)
+                            SUBMIT
+                        @endif
+                        <div class="DeleteX Hidden" id="DeleteX_{{ $user->id }}">
+                            <a href="#" class="DeleteLink" onClick="confirmDelete({{ $user->id }}, '{{$user->username}}'); return false;">X</a>
+                        </div>
+                    </td>
+                </tr>
+            @empty
+                <tr class="UserTableEmpty">
+                    <td colspan="2" class="NoUsers">
+                        There are currently no registered users.  Please re-seed the users table.
+                    </td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
+<div class="TableFoot">
+    <table class="UserTableFooter">
         <tr class="UserTableFootTR">
             <td class="UserTableFootTD">
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">Add User</button>
             </td>
             <td class="UserTableFootTd"></td>
         </tr>
-    </tfoot>
-</table>
+    </table>
+</div>
+
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" ara-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -98,7 +106,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onClick="addForm.submit()">Save New User</button>
+                    <button type="button" class="btn btn-primary" onClick="validateNewUser();">Save New User</button>
                 </div>
             </form>
         </div>

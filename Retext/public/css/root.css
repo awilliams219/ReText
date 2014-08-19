@@ -89,7 +89,7 @@ ReText Base CSS
     bottom: 1em;
     clear: both;
     padding: .3em 10%;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     text-align: right;
 }
@@ -122,9 +122,34 @@ ReText Base CSS
     margin-right: 2em;
 }
 
-.KeywordTable, .UserTable {
+.LoginBox {
+    text-align: center;
+    margin: 0 auto;
+    width: 15%;
+}
+
+.LoginFieldsWrapper {
+    padding-top: 150px;
+}
+
+.LoginText {
+    width: 100%;
+    font-size: 20pt;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+.TableWrap {
+    max-height: 80%;
     width: 60%;
-    height: 90%;
+    overflow: auto;
+    
+}
+
+.KeywordTable, .UserTable {
+    width: 100%;
+    height: 80%;
     border: 1px solid #fff;
     position: relative;
 }
@@ -138,6 +163,15 @@ ReText Base CSS
     padding: .3em 5%;
     margin-bottom: 5%;
 }
+
+.TableEntry {
+    color: #000;
+    padding: 3px 20px;
+    font-size: 18pt;
+    font-weight: 500;
+    
+}
+
 
 .KeywordTableFootTD, .UserTableFootTD {
     background-color: #fff;
@@ -160,8 +194,9 @@ tr.KeywordTableRow:nth-child(odd), tr.UserTableRow:nth-child(odd)  {
     position: absolute;
     right: 10px;
     color: rgb(46,117,182);
-    font-size: 24pt;
-    font-weight: 900;
+    font-size: 22pt;
+    font-weight: 700;
+    line-height: .9em;
 }
 
 .Hidden {

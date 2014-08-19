@@ -1,48 +1,56 @@
 @extends('root')
 
-@section('Canvas')
+@section('JSLoader')
+    {{ HTML::script('js/keywords.js'); }}
+@stop
 
-<table class="KeywordTable">
-    <thead class="KeywordTableHead">
-        <tr class="KeywordTableHeadTR">
-            <th class="KeywordTableTH">
-                Keyword
-            </th>
-            <th class="KeywordTableTH">
-                URL Target
-            </th>
-        </tr>
-    </thead>
-    <tbody class="KeywordTableBody">
-        @forelse ($keywords as $keyword)
-            <tr class="KeywordTableRow" onMouseOver="enableX({{ $keyword->id }});" onMouseOut="disableX({{ $keyword->id }});">
-                <td class="Keyword">
-                    <span id="keyword_{{ $keyword->id }}">{{ $keyword->keyword }}</span>
-                </td>
-                <td class="URL">
-                    {{ $keyword->url }}
-                    <div class="DeleteX Hidden" id="DeleteX_{{ $keyword->id }}">
-                        <a href="#" class="DeleteLink" onClick="confirmDelete({{ $keyword->id }}, '{{$keyword->keyword}}'); return false;">X</a>
-                    </div>
-                </td>
+@section('Canvas')
+<div class="TableWrap">
+    <table class="KeywordTable">
+        <thead class="KeywordTableHead">
+            <tr class="KeywordTableHeadTR">
+                <th class="KeywordTableTH">
+                    Keyword
+                </th>
+                <th class="KeywordTableTH">
+                    URL Target
+                </th>
             </tr>
-        @empty
-            <tr class="KeywordTableEmpty">
-                <td colspan="2" class="NoKeywords">
-                    There are currently no registered keywords
-                </td>
-            </tr>
-        @endforelse
-    </tbody>
-    <tfoot class="KeywordTableFooter">
+        </thead>
+        <tbody class="KeywordTableBody">
+            @forelse ($keywords as $keyword)
+                <tr class="KeywordTableRow" onMouseOver="enableX({{ $keyword->id }});" onMouseOut="disableX({{ $keyword->id }});">
+                    <td class="Keyword TableEntry">
+                        <span id="keyword_{{ $keyword->id }}">{{ $keyword->keyword }}</span>
+                    </td>
+                    <td class="URL TableEntry">
+                        {{ $keyword->url }}
+                        <div class="DeleteX Hidden" id="DeleteX_{{ $keyword->id }}">
+                            <a href="#" class="DeleteLink" onClick="confirmDelete({{ $keyword->id }}, '{{$keyword->keyword}}'); return false;">X</a>
+                        </div>
+                    </td>
+                </tr>
+            @empty
+                <tr class="KeywordTableEmpty">
+                    <td colspan="2" class="NoKeywords">
+                        There are currently no registered keywords
+                    </td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
+<div class="TableFoot">    
+    <table class="KeywordTableFooter">
         <tr class="KeywordTableFootTR">
             <td class="KeywordTableFootTD">
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">Add Keyword</button>
             </td>
             <td class="KeywordTableFootTd"></td>
         </tr>
-    </tfoot>
-</table>
+    </table>
+</div>
+
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" ara-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -61,18 +69,18 @@
                         <tr>
                             <td class="addCell">
                                 <label for="keywordField">Keyword</label>
-                                <input type="text" name="keyword" size="30" />
+                                <input type="text" name="keyword" size="30" id='keywordField' />
                             </td>
                             <td>
                                 <label for="urlField">URL</label>
-                                <input type="text" name="url" size="60" />
+                                <input type="text" name="url" size="60" id='urlField' />
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onClick="addForm.submit()">Save New Keyword</button>
+                    <button type="button" class="btn btn-primary" onClick="validateNewKeyword()">Save New Keyword</button>
                 </div>
             </form>
         </div>

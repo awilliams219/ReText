@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/O:/Retext/app/views/hello.php</file>
-            <file>file:/O:/Retext/app/routes.php</file>
-            <file>file:/O:/Retext/app/config/database.php</file>
-            <file>file:/O:/Retext/app/database/migrations/2014_08_16_225713_create_keywords_table.php</file>
+            <file>file:/O:/Retext/app/views/users.blade.php</file>
+            <file>file:/O:/Retext/app/controllers/KeywordController.php</file>
+            <file>file:/O:/Retext/app/controllers/BaseController.php</file>
+            <file>file:/O:/Retext/app/controllers/IOController.php</file>
+            <file>file:/O:/Retext/app/database/migrations/2014_08_16_225737_create_users_table.php</file>
+            <file>file:/O:/Retext/app/controllers/LoginController.php</file>
+            <file>file:/O:/Retext/app/views/root.blade.php</file>
+            <file>file:/O:/Retext/app/controllers/UserController.php</file>
+            <file>file:/O:/Retext/public/css/root.css</file>
         </group>
     </open-files>
 </project-private>

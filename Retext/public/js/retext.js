@@ -34,7 +34,7 @@ function highlightTaskEntry()
 
 
 /**
- * Enables Delete X on Keyword TR on Keyword Management Page
+ * Enables Delete X on list items on management pages
  */
 function enableX(id)
 {
@@ -42,7 +42,7 @@ function enableX(id)
 }
 
 /**
- * Disables Delete X on Keyword TR on Keyword Management Page
+ * Disables Delete X on list items on management pages
  */
 function disableX(id)
 {
@@ -50,7 +50,7 @@ function disableX(id)
 }
 
 /**
- * Confirms Deletion of URL Redirect before submission.
+ * Confirms Deletion of list entry before submission.
  */
 function confirmDelete(id, keyword)
 {
